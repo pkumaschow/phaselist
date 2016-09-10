@@ -1,0 +1,31 @@
+body {
+    font-family: 'PT Sans Narrow', sans-serif;
+
+}
+
+table {
+    border: #020202 solid 1px;
+}
+tr.row:hover {
+    background: orange;
+}
+
+.cell {
+    min-width:25%;
+    min-height: auto;
+    text-align: center;
+    padding:.2em;
+}
+
+.type_0 {
+    background-color: #000;
+    color: white;
+}
+
+.type_1 {
+    background-color: aliceblue;
+}
+
+.type_3 {
+    background-color: aliceblue;
+}
