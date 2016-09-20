@@ -11,8 +11,8 @@ $seconds_since_1970 = time;
 
 $one_day = 24 * 60 * 60;
 $one_year = 365 * $one_day;
-$start = $seconds_since_1970 - 0 * (365 * 24 * 60 * 60);
-$stop = $seconds_since_1970 + 0.75 * (365 * 24 * 60 * 60);
+$start = $seconds_since_1970 - 0.05 * (365 * 24 * 60 * 60);
+$stop = $seconds_since_1970 + 0.255 * (365 * 24 * 60 * 60);
 
 ($phase, @times) = phaselist($start, $stop);
 
@@ -84,7 +84,7 @@ for($row = 0; $row < scalar @table; $row++) {
     $table[$row]{phase_formatted} = strftime $dateformat, localtime $table[$row]{phase};
 }
 
-#if any argument is passed in then output html
+#if any argument is passed then output html
 if (@ARGV) {
     &html_print(@table);
 } else {
