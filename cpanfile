@@ -1,4 +1,4 @@
 requires 'Astro::MoonPhase';
 requires 'Switch';
-requires 'POSIX qw(strftime)';
+requires 'POSIX';
 requires 'DateTime';
