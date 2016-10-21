@@ -5,7 +5,7 @@ MAINTAINER  Peter Kumaschow pkumaschow@gmail.com
 RUN curl -L http://cpanmin.us | perl - App::cpanminus
 RUN cpanm Carton Starman
 
-RUN cachebuster=b953b36 git clone http://github.com/pkumaschow/phaselist
+RUN cachebuster=b953b38 git clone http://github.com/pkumaschow/phaselist
 RUN cd phaselist && carton install --deployment
 
 EXPOSE 8080
