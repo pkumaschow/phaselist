@@ -1,7 +1,6 @@
 requires 'Astro::MoonPhase';
 requires 'Switch';
-requires 'HTTP::Server::Simple';
-requires 'Dancer';
+requires 'Dancer2';
 requires 'CHI';
 requires 'Cache::FastMmap';
 requires 'POSIX';
