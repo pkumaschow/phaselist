@@ -1,5 +1,15 @@
 #!/usr/bin/env perl
 
+
+# Lambda function spins up a container - executes this script to generate the html file
+# stores the function in a bucket in s3
+
+# Lambda function has a role that allows it to spin up the docker container
+# Docker container has a role that allows it to write to the bucket
+
+# cloud formation template spins it all up, creates the roles etc
+
+
 use Astro::MoonPhase;
 use Switch;
 use POSIX qw(strftime);
