@@ -1,6 +1,6 @@
 requires 'Astro::MoonPhase';
 requires 'Switch';
-requires 'Dancer2';
+requires 'Dancer';
 requires 'CHI';
 requires 'Cache::FastMmap';
 requires 'POSIX';
