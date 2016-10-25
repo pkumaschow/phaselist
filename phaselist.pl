@@ -15,8 +15,6 @@ use Switch;
 use POSIX qw(strftime);
 use DateTime;
 
-use lib 'local/lib/perl5';
-
 $dateformat ="%d-%b-%Y";
 
 $seconds_since_1970 = time;
