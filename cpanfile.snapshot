@@ -6,6 +6,51 @@ DISTRIBUTIONS
       Astro::MoonPhase 0.60
     requirements:
       ExtUtils::MakeMaker 0
+  ExtUtils-MakeMaker-7.24
+    pathname: B/BI/BINGOS/ExtUtils-MakeMaker-7.24.tar.gz
+    provides:
+      ExtUtils::Command 7.24
+      ExtUtils::Command::MM 7.24
+      ExtUtils::Liblist 7.24
+      ExtUtils::Liblist::Kid 7.24
+      ExtUtils::MM 7.24
+      ExtUtils::MM_AIX 7.24
+      ExtUtils::MM_Any 7.24
+      ExtUtils::MM_BeOS 7.24
+      ExtUtils::MM_Cygwin 7.24
+      ExtUtils::MM_DOS 7.24
+      ExtUtils::MM_Darwin 7.24
+      ExtUtils::MM_MacOS 7.24
+      ExtUtils::MM_NW5 7.24
+      ExtUtils::MM_OS2 7.24
+      ExtUtils::MM_QNX 7.24
+      ExtUtils::MM_UWIN 7.24
+      ExtUtils::MM_Unix 7.24
+      ExtUtils::MM_VMS 7.24
+      ExtUtils::MM_VOS 7.24
+      ExtUtils::MM_Win32 7.24
+      ExtUtils::MM_Win95 7.24
+      ExtUtils::MY 7.24
+      ExtUtils::MakeMaker 7.24
+      ExtUtils::MakeMaker::Config 7.24
+      ExtUtils::MakeMaker::Locale 7.24
+      ExtUtils::MakeMaker::_version 7.24
+      ExtUtils::MakeMaker::charstar 7.24
+      ExtUtils::MakeMaker::version 7.24
+      ExtUtils::MakeMaker::version::regex 7.24
+      ExtUtils::MakeMaker::version::vpp 7.24
+      ExtUtils::Mkbootstrap 7.24
+      ExtUtils::Mksymlists 7.24
+      ExtUtils::testlib 7.24
+      MM 7.24
+      MY 7.24
+    requirements:
+      Data::Dumper 0
+      Encode 0
+      File::Basename 0
+      File::Spec 0.8
+      Pod::Man 0
+      perl 5.006
   Switch-2.17
     pathname: C/CH/CHORNY/Switch-2.17.tar.gz
     provides:
@@ -16,3 +61,11 @@ DISTRIBUTIONS
       Text::Balanced 2
       if 0
       perl 5.005
+  local-lib-2.000019
+    pathname: H/HA/HAARG/local-lib-2.000019.tar.gz
+    provides:
+      lib::core::only undef
+      local::lib 2.000019
+    requirements:
+      ExtUtils::MakeMaker 7.00
+      perl 5.006
