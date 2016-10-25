@@ -3,12 +3,13 @@ FROM        perl:latest
 MAINTAINER  Peter Kumaschow pkumaschow@gmail.com
 
 RUN curl -L http://cpanmin.us | perl - App::cpanminus
-RUN cpanm Carton Starman
+#RUN cpanm Carton Starman
+RUN cpanm Carton
 
-RUN cachebuster=b953b42 git clone http://github.com/pkumaschow/phaselist
+RUN cachebuster=b953b44 git clone http://github.com/pkumaschow/phaselist
 RUN cd phaselist && carton install --deployment
 
-EXPOSE 8080
+#EXPOSE 8080
 
 WORKDIR phaselist
-CMD carton exec starman --port 8080 phaselist.pl
+CMD perl phaselist.pl
