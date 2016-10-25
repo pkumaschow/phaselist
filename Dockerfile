@@ -6,7 +6,7 @@ RUN curl -L http://cpanmin.us | perl - App::cpanminus
 #RUN cpanm Carton Starman
 RUN cpanm Carton
 
-RUN cachebuster=b953b47 git clone http://github.com/pkumaschow/phaselist
+RUN cachebuster=b953b48 git clone http://github.com/pkumaschow/phaselist
 RUN cd phaselist && carton install --deployment
 
 #EXPOSE 8080

@@ -15,7 +15,7 @@ use Switch;
 use POSIX qw(strftime);
 use DateTime;
 
-use lib 'local';
+use lib 'local/lib/';
 
 $dateformat ="%d-%b-%Y";
 

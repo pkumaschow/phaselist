@@ -6,6 +6,13 @@ DISTRIBUTIONS
       Astro::MoonPhase 0.60
     requirements:
       ExtUtils::MakeMaker 0
+  OO-DateTime-0.01
+    pathname: T/TO/TOBIX/OO-DateTime-0.01.tar.gz
+    provides:
+      Date::Time 0.01
+      Date::Time::UnixTime 0.01
+    requirements:
+      ExtUtils::MakeMaker 0
   Switch-2.17
     pathname: C/CH/CHORNY/Switch-2.17.tar.gz
     provides:
