@@ -15,7 +15,7 @@ use Switch;
 use POSIX qw(strftime);
 use DateTime;
 
-use lib 'local/lib/';
+use lib 'local/lib/perl5';
 
 $dateformat ="%d-%b-%Y";
 
