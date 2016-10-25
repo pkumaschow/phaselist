@@ -2,5 +2,5 @@
 
 docker build -t pkumaschow/phaselist .
 
-docker run --name=phaselist -it --rm -p 8080:8080 pkumaschow/phaselist
+docker run --rm --name phaselist -t pkumaschow/phaselist
 
