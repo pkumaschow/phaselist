@@ -1,6 +1,5 @@
 #!/usr/bin/env perl
 
-
 # Lambda function spins up a container - executes this script to generate the html file
 # stores the function in a bucket in s3
 
@@ -9,89 +8,122 @@
 
 # cloud formation template spins it all up, creates the roles etc
 
+use strict;
 
 use Astro::MoonPhase;
 use Switch;
 use POSIX qw(strftime);
 use DateTime;
+use Getopt::Std;
+use Data::Dumper;
 
-$dateformat ="%d-%b-%Y";
+my $dateformat ="%d-%b-%Y";
 
-$seconds_since_1970 = time;
+my $seconds_since_1970 = time;
 
-$one_day = 24 * 60 * 60;
-$one_year = 365 * $one_day;
-$start = $seconds_since_1970 - 0.05 * (365 * 24 * 60 * 60);
-$stop = $seconds_since_1970 + 0.255 * (365 * 24 * 60 * 60);
+my $one_day = 24 * 60 * 60;
+my $one_year = 365 * $one_day;
+my $start = $seconds_since_1970 - 0.05 * (365 * 24 * 60 * 60);
+my $end;
 
-($phase, @times) = phaselist($start, $stop);
+my $stop = $seconds_since_1970 + 0.255 * (365 * 24 * 60 * 60);
 
-@table = ();
+our($phase, @times) = phaselist($start, $stop);
 
-@name = ('The New Moon', 'First Quarter Moon', 'The Full Moon', 'Last Quarter Moon');
+my @table = ();
 
-$prev_end = 0;
+my @name = ('The New Moon', 'First Quarter Moon', 'The Full Moon', 'Last Quarter Moon');
+
+my $prev_end = 0;
+
+my $phase_time = 0;
+
+#numbers of days pre and post a phase
+my $pre;
+my $post;
+
+my %phase_current;
+my %phase_prev;
+my %phase_next;
 
 while (@times) {
-    $phasetime = shift @times;
+    $phase_time = shift @times;
     #default for quarter phases;
+
     switch ($phase) {
+        #The New Moon
         case 0 {
            $pre = 4;
            $post = 5;
         }
+        #FIrst Quarter Moon
         case 1 {
              $pre = 2;
              $post = 2;
         }
+        #The Full Moon
         case 2 {
             $pre = 4;
             $post = 5;
         }
+        #Last Quarter Moon
         case 3 {
              $pre = 2;
              $post = 2;
         }
     }
-    $start = $phasetime - $pre * $one_day;
-    $end = $phasetime + $post * $one_day;
-    my %phase = (type => $phase, name=>$name[$phase], start=>$start, phase=>$phasetime, end=>$end);
-    push @table, \%phase;
+    $start = $phase_time - $pre * $one_day;
+    $end = $phase_time + $post * $one_day;
+    my %phase_current = ( 'type' => $phase,
+                          'name' => $name[$phase],
+                          'start'=> $start,
+                          'phase'=> $phase_time,
+                          'end'  => $end
+                        );
+
+    push @table, \%phase_current;
+
     $phase = ($phase + 1) % 4;
 }
 
 #parse it and clean it up so that dates are contiguous
 
-for($row = 0; $row < scalar @table; $row++) {
-    %phase = %{$table[$row]};
+for(my $row = 0; $row < scalar @table - 1; $row++) {
+
+
+    %phase_current = %{$table[$row]};
+    %phase_prev = %{$table[$row - 1]};
+    if ($row < scalar @table) {
+        %phase_next = %{$table[$row + 1]};
+        #print Dumper(\%phase_next);
+    }
+
     if ($row > 0 ) {
-        %prev_phase = %{$table[$row - 1]};
-        if ($phase{start} - $prev_phase{end} > $one_day)
+
+        if ($phase_current{start} - $phase_prev{end} > $one_day)
         {
-             $table[$row]{start} = $prev_phase{end} + $one_day;
+             $table[$row]{start} = $phase_prev{end} + $one_day;
         }
     }
-    if ($row < scalar @table) {
-        %next_phase = %{$table[$row + 1]};
-    }
+
     #if full moon or new moon
     if ($table[$row]{type} == 0 || $table[$row]{type} == 2) {
         #if prev end date doesn't equal 1 day prior to this start date
         #then set this start date to prev end date +1 day
-        if ($phase{start} - $prev_phase{end} < $one_day) {
-            $table[$row]{start} = $prev_phase{end} + $one_day;
+        if ($phase_current{start} - $phase_prev{end} < $one_day) {
+            $table[$row]{start} = $phase_prev{end} + $one_day;
         }
 
         #if next start date less than 1 day after this end date
         #then set this end date to next start date -1 day
 
-        if ($next_phase{start} - $phase{end} <= $one_day && $next_phase{start} != 0) {
-            $table[$row]{end} = $next_phase{start} - $one_day;
+        if ($phase_next{start} - $phase_current{end} <= $one_day && $phase_next{start} != 0) {
+            $table[$row]{end} = $phase_next{start} - $one_day;
         }
     }
-    $table[$row]{start_formatted} = strftime $dateformat, localtime $table[$row]{start};
-    $table[$row]{end_formatted} = strftime $dateformat, localtime $table[$row]{end};
-    $table[$row]{phase_formatted} = strftime $dateformat, localtime $table[$row]{phase};
+    $table[$row]{start_formatted} = strftime $dateformat, localtime $phase_current{start};
+    $table[$row]{end_formatted} = strftime $dateformat, localtime $phase_current{end};
+    $table[$row]{phase_formatted} = strftime $dateformat, localtime $phase_current{phase};
 }
 
 #if any argument is passed then output html
@@ -103,7 +135,7 @@ if (@ARGV) {
 
 sub text_print() {
     print "============================================================\n";
-    for( $row = 0; $row < scalar @_; $row++ ) {
+    for( my $row = 0; $row < scalar @_ - 1; $row++ ) {
         #printf "%s ", $phase{type};
         printf "%-22s%s ", $_[$row]{name};
         printf "%s  ", $_[$row]{start_formatted};
@@ -123,7 +155,7 @@ sub html_print() {
     print "<body>";
     print "<table>";
     print "<tr><th>Phase Name</th><th>Phase Start</th><th>Phase Date</th><th>Phase End</th></tr>";
-    for( $row = 0; $row < scalar @_; $row++ ) {
+    for( my $row = 0; $row < scalar @_ -1; $row++ ) {
         printf "<tr class=\"cell row type_%s\">\n", $_[$row]{type};
         printf "\t<td class=\"cell phase_name\">%s</td> \n", $_[$row]{name};
         printf "\t<td class=\"cell phase_start\">%s</td> \n", $_[$row]{start_formatted};
