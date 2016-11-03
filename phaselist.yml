@@ -1,0 +1,51 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Parameters:
+  PhaseListBucketName:
+    Type: String
+    Description: Name of the bucket
+    Default: phaselist
+
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref PhaseListBucketName
+      AccessControl: PublicRead
+      WebsiteConfiguration:
+        IndexDocument: phaselist.html
+        ErrorDocument: error.html
+    DeletionPolicy: Retain
+  S3BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: 
+        Ref: PhaseListBucketName
+      PolicyDocument: 
+        Statement:
+          -
+            Sid: "PublicReadGetObject"
+            Effect: "Allow"
+            Principal: "*"
+            Action:
+              - "s3:GetObject"
+            Resource:
+              Fn::Join:
+                - ""
+                -
+                  - "arn:aws:s3:::"
+                  -
+                    Ref: PhaseListBucketName
+                  - "/*"
+            Principal: "*"
+
+Outputs:
+  WebsiteURL:
+    Value: !GetAtt S3Bucket.WebsiteURL
+    Description: phaselist website hosted on S3
+  S3BucketSecureURL:
+    Value: !Sub
+        - https://${Domain}
+        - Domain: !GetAtt S3Bucket.DomainName
+    Description: phaselist
+

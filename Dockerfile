@@ -12,4 +12,4 @@ RUN cd phaselist && carton install
 #EXPOSE 8080
 
 WORKDIR phaselist
-CMD perl -I local/lib/perl5 phaselist.pl 
+CMD perl -I local/lib/perl5 phaselist.pl
