@@ -88,45 +88,49 @@ while (@times) {
 
 #parse it and clean it up so that dates are contiguous
 
-for(my $row = 0; $row < scalar @table - 1; $row++) {
+for(my $row = 0; $row < scalar @table; $row++) {
 
 
     %phase_current = %{$table[$row]};
     %phase_prev = %{$table[$row - 1]};
-    if ($row < scalar @table) {
+    if ($row < scalar @table - 1) {
         %phase_next = %{$table[$row + 1]};
         #print Dumper(\%phase_next);
     }
 
-    if ($row > 0 ) {
 
-        if ($phase_current{start} - $phase_prev{end} > $one_day)
-        {
-             $table[$row]{start} = $phase_prev{end} + $one_day;
-        }
-    }
 
     #if full moon or new moon
     if ($table[$row]{type} == 0 || $table[$row]{type} == 2) {
         #if prev end date doesn't equal 1 day prior to this start date
         #then set this start date to prev end date +1 day
         if ($phase_current{start} - $phase_prev{end} < $one_day) {
-            $table[$row]{start} = $phase_prev{end} + $one_day;
+            print "$phase_prev{end}\n";
+            $phase_current{start} = $phase_prev{end} + $one_day;
         }
 
         #if next start date less than 1 day after this end date
         #then set this end date to next start date -1 day
 
         if ($phase_next{start} - $phase_current{end} <= $one_day && $phase_next{start} != 0) {
-            $table[$row]{end} = $phase_next{start} - $one_day;
+            $phase_current{end} = $phase_next{start} - $one_day;
         }
     }
+
+    if ($row > 0 ) {
+
+        if ($phase_current{start} - $phase_prev{end} > $one_day)
+        {
+             $phase_current{start} = $phase_prev{end} + $one_day;
+        }
+    }
+
     $table[$row]{start_formatted} = strftime $dateformat, localtime $phase_current{start};
     $table[$row]{end_formatted} = strftime $dateformat, localtime $phase_current{end};
     $table[$row]{phase_formatted} = strftime $dateformat, localtime $phase_current{phase};
 }
 
-#if any argument is passed then output html
+#if any argument is passed then output html otherwise spit out plain text version
 if (@ARGV) {
     &html_print(@table);
 } else {

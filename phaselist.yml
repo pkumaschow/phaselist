@@ -1,5 +1,5 @@
-AWSTemplateFormatVersion: '2010-09-09'
-
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Phase List Static S3 Website"
 Parameters:
   PhaseListBucketName:
     Type: String
