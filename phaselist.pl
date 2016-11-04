@@ -105,7 +105,6 @@ for(my $row = 0; $row < scalar @table; $row++) {
         #if prev end date doesn't equal 1 day prior to this start date
         #then set this start date to prev end date +1 day
         if ($phase_current{start} - $phase_prev{end} < $one_day) {
-            print "$phase_prev{end}\n";
             $phase_current{start} = $phase_prev{end} + $one_day;
         }
 
