@@ -17,6 +17,6 @@ docker run --rm --name phaselist -t pkumaschow/phaselist perl -I local/lib/perl5
 
 Create Stack
 ```
-aws cloudformation create-stack --template-body file://./phaselist.yml --stack-name phaselist-dev
+aws cloudformation create-stack --template-body file://./phaselist.template --stack-name phaselist-dev
 ```
 

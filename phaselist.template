@@ -1,5 +1,7 @@
 AWSTemplateFormatVersion: "2010-09-09"
+
 Description: "Phase List Static S3 Website"
+
 Parameters:
   PhaseListBucketName:
     Type: String
@@ -7,6 +9,17 @@ Parameters:
     Default: phaselist
 
 Resources:
+
+  PhaseListDailyRule:
+    Type: "AWS::Events::Rule"
+    Properties:
+      Description: "Schedule for running the PhaseList Lambda function"
+      Name: PhaseListScheduleRule
+      ScheduleExpression: "cron(0 10 * * ? *)"
+      State: Enabled
+      Targets:
+        - Ref: PhaseListLambda
+
   PhaseListRole:
     Type: AWS::IAM::Role
     Properties:
@@ -15,12 +28,10 @@ Resources:
         Statement:
           -
             Effect: "Allow"
-            Principal:
-              Service:
-                - "ecs.amazonaws.com"
-              Action:
-                - "sts:AssumeRole"
-      RoleName: {"Fn::Join": ["", [{"Ref": "AWS::Region"}, {"Ref": "PhaseList"}]]}
+            Action:
+              -  "s3:PutObject"
+            Resource: !Ref PhaseListBucketName
+      RoleName: {"Fn::Join": ["", [{"Ref": "AWS::Region"}, {"Ref": "PhaseListBucketName"}]]}
 
   PhaseListLambda:
     Type: AWS::Lambda::Function
@@ -29,7 +40,7 @@ Resources:
       FunctionName: PhaseList
       Handler: index.my_handler
       MemorySize: 128
-      Role: !Ref LambdaRole
+      Role: !Ref PhaseListRole
       Runtime: python2.7
       Code:
         ZipFile: lambda/lambda.zip
