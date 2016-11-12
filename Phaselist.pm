@@ -73,6 +73,7 @@ sub list() {
                  $post = 2;
             }
         }
+
         $start = $phase_time - $pre * $one_day;
         $end = $phase_time + $post * $one_day;
         my %phase_current = ( 'type' => $phase,
@@ -94,6 +95,7 @@ sub list() {
 
         %phase_current = %{$table[$row]};
         %phase_prev = %{$table[$row - 1]};
+
         if ($row < scalar @table - 1) {
             %phase_next = %{$table[$row + 1]};
             #print Dumper(\%phase_next);
@@ -103,11 +105,6 @@ sub list() {
 
         #if full moon or new moon
         if ($table[$row]{type} == 0 || $table[$row]{type} == 2) {
-            #if prev end date doesn't equal 1 day prior to this start date
-            #then set this start date to prev end date +1 day
-            if ($phase_current{start} - $phase_prev{end} < $one_day) {
-                $phase_current{start} = $phase_prev{end} + $one_day;
-            }
 
             #if next start date less than 1 day after this end date
             #then set this end date to next start date -1 day

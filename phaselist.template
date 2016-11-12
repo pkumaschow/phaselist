@@ -30,7 +30,8 @@ Resources:
             Effect: "Allow"
             Action:
               -  "s3:PutObject"
-            Resource: !Ref PhaseListBucketName
+            Principal: "AWSLambdaBasicExecutionRole"
+      Path: "/"
       RoleName: {"Fn::Join": ["", [{"Ref": "AWS::Region"}, {"Ref": "PhaseListBucketName"}]]}
 
   PhaseListLambda:
