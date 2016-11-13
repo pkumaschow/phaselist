@@ -15,8 +15,6 @@ use DateTime;
 use Getopt::Std;
 use Data::Dumper;
 
-
-
 my $date_format ="%d-%b-%Y";
 
 my $seconds_since_1970 = time;
@@ -127,36 +125,21 @@ sub list() {
         $table[$row]{phase_formatted} = strftime $date_format, localtime $phase_current{phase};
     }
 
-    #if any argument is passed then output html otherwise spit out plain text version
-    if (@ARGV) {
-        &html_print(@table);
-    } else {
-        &text_print(@table);
-    }
+    pop @table;
 
-}
-
-sub text_print() {
-    print "============================================================\n";
-    for( my $row = 0; $row < scalar @_ - 1; $row++ ) {
-        #printf "%s ", $phase{type};
-        printf "%-22s%s ", $_[$row]{name};
-        printf "%s  ", $_[$row]{start_formatted};
-        printf "%s  ", $_[$row]{phase_formatted};
-        printf "%s  ", $_[$row]{end_formatted};
-        print "\n";
-        if ($_[$row]{type} == 0) {
-            print "============================================================\n";
-        }
-    }
+    return @table;
 }
 
 sub html_print() {
     #print "Content-type: text/html\n\n";
-    print "<html>";
-    print "<head><link href='default.css' rel='stylesheet'></head>";
-    print "<body>";
-    print "<table>";
+    print "<html>\n";
+    print "<head>\n";
+    print '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">' . "\n";
+    #print "<link href='default.css' rel='stylesheet'>";
+    print "</head>\n";
+    print "<body>\n";
+    print "<div class='container-fluid'>\n";
+    print "<table>\n";
     print "<tr><th>Phase Name</th><th>Phase Start</th><th>Phase Date</th><th>Phase End</th></tr>";
     for( my $row = 0; $row < scalar @_ -1; $row++ ) {
         printf "<tr class=\"cell row type_%s\">\n", $_[$row]{type};
@@ -166,7 +149,12 @@ sub html_print() {
         printf "\t<td class=\"cell phase_end\">%s</td> \n", $_[$row]{end_formatted};
         print "</tr>\n";
     }
-    print "</table></body></html>";
+    print "</table>";
+    print '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>';
+    print '<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>';
+    print '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>';
+    print "</div>";
+    print "</body></html>";
 }
 
 1;

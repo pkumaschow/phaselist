@@ -536,6 +536,28 @@ DISTRIBUTIONS
       perl 5.008001
       strict 0
       warnings 0
+  HTML-Template-2.95
+    pathname: W/WO/WONKO/HTML-Template-2.95.tar.gz
+    provides:
+      HTML::Template 2.95
+      HTML::Template::COND 2.95
+      HTML::Template::DEFAULT 2.95
+      HTML::Template::ESCAPE 2.95
+      HTML::Template::FAQ undef
+      HTML::Template::JSESCAPE 2.95
+      HTML::Template::LOOP 2.95
+      HTML::Template::NOOP 2.95
+      HTML::Template::PRINTSCALAR 2.95
+      HTML::Template::URLESCAPE 2.95
+      HTML::Template::VAR 2.95
+    requirements:
+      Carp 0
+      Digest::MD5 0
+      ExtUtils::MakeMaker 6.30
+      File::Spec 0.82
+      File::Temp 0
+      Scalar::Util 0
+      Test::More 0
   MRO-Compat-0.12
     pathname: B/BO/BOBTFISH/MRO-Compat-0.12.tar.gz
     provides:
