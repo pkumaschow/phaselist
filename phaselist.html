@@ -1,99 +1,249 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link href='public/default.css' rel='stylesheet'>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <style>
+    body {
+        font-family: 'PT Sans Narrow', sans-serif;
+        padding-top: 65px;
+    }
+    tr.row:hover {
+        background: orange;
+    }
+    .type_0 {
+        background-color: #000;
+        color: white;
+    }
+
+    .type_1 {
+        background-color: aliceblue;
+    }
+
+    .type_3 {
+        background-color: aliceblue;
+    }
+    </style>
 </head>
 <body>
-<table>
-    <tr>
-        <th>Phase Name</th>
-        <th>Phase Start</th>
-        <th>Phase Date</th>
-        <th>Phase End</th>
-    </tr>
-    <tr class="cell row type_3">
-        <td class="cell phase_name">Last Quarter Moon</td>
-        <td class="cell phase_start">21-Oct-2016</td>
-        <td class="cell phase_date">23-Oct-2016</td>
-        <td class="cell phase_end">25-Oct-2016</td>
-    </tr>
-    <tr class="cell row type_0">
-        <td class="cell phase_name">The New Moon</td>
-        <td class="cell phase_start">26-Oct-2016</td>
-        <td class="cell phase_date">31-Oct-2016</td>
-        <td class="cell phase_end">05-Nov-2016</td>
-    </tr>
-    <tr class="cell row type_1">
-        <td class="cell phase_name">First Quarter Moon</td>
-        <td class="cell phase_start">06-Nov-2016</td>
-        <td class="cell phase_date">08-Nov-2016</td>
-        <td class="cell phase_end">10-Nov-2016</td>
-    </tr>
-    <tr class="cell row type_2">
-        <td class="cell phase_name">The Full Moon</td>
-        <td class="cell phase_start">11-Nov-2016</td>
-        <td class="cell phase_date">15-Nov-2016</td>
-        <td class="cell phase_end">18-Nov-2016</td>
-    </tr>
-    <tr class="cell row type_3">
-        <td class="cell phase_name">Last Quarter Moon</td>
-        <td class="cell phase_start">19-Nov-2016</td>
-        <td class="cell phase_date">21-Nov-2016</td>
-        <td class="cell phase_end">23-Nov-2016</td>
-    </tr>
-    <tr class="cell row type_0">
-        <td class="cell phase_name">The New Moon</td>
-        <td class="cell phase_start">24-Nov-2016</td>
-        <td class="cell phase_date">29-Nov-2016</td>
-        <td class="cell phase_end">04-Dec-2016</td>
-    </tr>
-    <tr class="cell row type_1">
-        <td class="cell phase_name">First Quarter Moon</td>
-        <td class="cell phase_start">05-Dec-2016</td>
-        <td class="cell phase_date">07-Dec-2016</td>
-        <td class="cell phase_end">09-Dec-2016</td>
-    </tr>
-    <tr class="cell row type_2">
-        <td class="cell phase_name">The Full Moon</td>
-        <td class="cell phase_start">10-Dec-2016</td>
-        <td class="cell phase_date">14-Dec-2016</td>
-        <td class="cell phase_end">18-Dec-2016</td>
-    </tr>
-    <tr class="cell row type_3">
-        <td class="cell phase_name">Last Quarter Moon</td>
-        <td class="cell phase_start">19-Dec-2016</td>
-        <td class="cell phase_date">21-Dec-2016</td>
-        <td class="cell phase_end">23-Dec-2016</td>
-    </tr>
-    <tr class="cell row type_0">
-        <td class="cell phase_name">The New Moon</td>
-        <td class="cell phase_start">24-Dec-2016</td>
-        <td class="cell phase_date">29-Dec-2016</td>
-        <td class="cell phase_end">03-Jan-2017</td>
-    </tr>
-    <tr class="cell row type_1">
-        <td class="cell phase_name">First Quarter Moon</td>
-        <td class="cell phase_start">04-Jan-2017</td>
-        <td class="cell phase_date">06-Jan-2017</td>
-        <td class="cell phase_end">08-Jan-2017</td>
-    </tr>
-    <tr class="cell row type_2">
-        <td class="cell phase_name">The Full Moon</td>
-        <td class="cell phase_start">09-Jan-2017</td>
-        <td class="cell phase_date">12-Jan-2017</td>
-        <td class="cell phase_end">17-Jan-2017</td>
-    </tr>
-    <tr class="cell row type_3">
-        <td class="cell phase_name">Last Quarter Moon</td>
-        <td class="cell phase_start">18-Jan-2017</td>
-        <td class="cell phase_date">20-Jan-2017</td>
-        <td class="cell phase_end">22-Jan-2017</td>
-    </tr>
-    <tr class="cell row type_0">
-        <td class="cell phase_name">The New Moon</td>
-        <td class="cell phase_start">23-Jan-2017</td>
-        <td class="cell phase_date">28-Jan-2017</td>
-        <td class="cell phase_end">01-Feb-2017</td>
-    </tr>
-</table>
+
+
+    <nav style="diplay:block" class="navbar navbar-fixed-top navbar-dark bg-inverse">
+      <a class="navbar-brand" href="#">Phase List</a>
+      <ul class="nav navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)" onclick="flip('phaselist');">Dates</a>
+        </li>
+        <li class="nav-item">
+            <a id="new-link" class="nav-link" href="javascript:void(0)" onclick="flip('new');">New Moon</a>
+        </li>
+          <li class="nav-item">
+              <a id="quarter-link" class="nav-link" href="javascript:void(0)" onclick="flip('quarter');">Quarter Moon</a>
+          </li>
+          <li class="nav-item">
+              <a id="full-link" class="nav-link" href="javascript:void(0)" onclick="flip('full');">Full Moon</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">About</a>
+        </li>
+      </ul>
+    </nav>
+
+
+    <div class='container-fluid'>
+        <div id="phaselist" class="stuff table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Phase Name</th><th>Phase Start</th><th>Phase Date</th><th>Phase End</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                <tr class="row type_0">
+                    <!-- start 1477503593.00071 -->
+                    <!-- end 1478281193.00071 -->
+                    <!-- phase 1477849193.00071 -->
+                    <td class="cell phase_name">The New Moon</td>
+                    <td class="cell phase_start">27-Oct-2016</td>
+                    <td class="cell phase_date">31-Oct-2016</td>
+                    <td class="cell phase_end">05-Nov-2016</td>
+                </tr>
+                
+                <tr class="row type_1">
+                    <!-- start 1478375568.55456 -->
+                    <!-- end 1478721168.55456 -->
+                    <!-- phase 1478548368.55456 -->
+                    <td class="cell phase_name">First Quarter Moon</td>
+                    <td class="cell phase_start">06-Nov-2016</td>
+                    <td class="cell phase_date">08-Nov-2016</td>
+                    <td class="cell phase_end">10-Nov-2016</td>
+                </tr>
+                
+                <tr class="row type_2">
+                    <!-- start 1478786018.2593 -->
+                    <!-- end 1479563618.2593 -->
+                    <!-- phase 1479131618.2593 -->
+                    <td class="cell phase_name">The Full Moon</td>
+                    <td class="cell phase_start">11-Nov-2016</td>
+                    <td class="cell phase_date">15-Nov-2016</td>
+                    <td class="cell phase_end">18-Nov-2016</td>
+                </tr>
+                
+                <tr class="row type_3">
+                    <!-- start 1479544498.71959 -->
+                    <!-- end 1479890098.71959 -->
+                    <!-- phase 1479717298.71959 -->
+                    <td class="cell phase_name">Last Quarter Moon</td>
+                    <td class="cell phase_start">19-Nov-2016</td>
+                    <td class="cell phase_date">21-Nov-2016</td>
+                    <td class="cell phase_end">23-Nov-2016</td>
+                </tr>
+                
+                <tr class="row type_0">
+                    <!-- start 1480076375.15991 -->
+                    <!-- end 1480853975.15991 -->
+                    <!-- phase 1480421975.15991 -->
+                    <td class="cell phase_name">The New Moon</td>
+                    <td class="cell phase_start">24-Nov-2016</td>
+                    <td class="cell phase_date">29-Nov-2016</td>
+                    <td class="cell phase_end">04-Dec-2016</td>
+                </tr>
+                
+                <tr class="row type_1">
+                    <!-- start 1480928638.47145 -->
+                    <!-- end 1481274238.47145 -->
+                    <!-- phase 1481101438.47145 -->
+                    <td class="cell phase_name">First Quarter Moon</td>
+                    <td class="cell phase_start">05-Dec-2016</td>
+                    <td class="cell phase_date">07-Dec-2016</td>
+                    <td class="cell phase_end">09-Dec-2016</td>
+                </tr>
+                
+                <tr class="row type_2">
+                    <!-- start 1481328415.64997 -->
+                    <!-- end 1482106015.64997 -->
+                    <!-- phase 1481674015.64997 -->
+                    <td class="cell phase_name">The Full Moon</td>
+                    <td class="cell phase_start">10-Dec-2016</td>
+                    <td class="cell phase_date">14-Dec-2016</td>
+                    <td class="cell phase_end">18-Dec-2016</td>
+                </tr>
+                
+                <tr class="row type_3">
+                    <!-- start 1482112605.53501 -->
+                    <!-- end 1482458205.53501 -->
+                    <!-- phase 1482285405.53501 -->
+                    <td class="cell phase_name">Last Quarter Moon</td>
+                    <td class="cell phase_start">19-Dec-2016</td>
+                    <td class="cell phase_date">21-Dec-2016</td>
+                    <td class="cell phase_end">23-Dec-2016</td>
+                </tr>
+                
+                <tr class="row type_0">
+                    <!-- start 1482648858.54475 -->
+                    <!-- end 1483426458.54475 -->
+                    <!-- phase 1482994458.54475 -->
+                    <td class="cell phase_name">The New Moon</td>
+                    <td class="cell phase_start">24-Dec-2016</td>
+                    <td class="cell phase_date">29-Dec-2016</td>
+                    <td class="cell phase_end">03-Jan-2017</td>
+                </tr>
+                
+                <tr class="row type_1">
+                    <!-- start 1483472861.67129 -->
+                    <!-- end 1483818461.67129 -->
+                    <!-- phase 1483645661.67129 -->
+                    <td class="cell phase_name">First Quarter Moon</td>
+                    <td class="cell phase_start">04-Jan-2017</td>
+                    <td class="cell phase_date">06-Jan-2017</td>
+                    <td class="cell phase_end">08-Jan-2017</td>
+                </tr>
+                
+                <tr class="row type_2">
+                    <!-- start 1483875312.2619 -->
+                    <!-- end 1484652912.2619 -->
+                    <!-- phase 1484220912.2619 -->
+                    <td class="cell phase_name">The Full Moon</td>
+                    <td class="cell phase_start">08-Jan-2017</td>
+                    <td class="cell phase_date">12-Jan-2017</td>
+                    <td class="cell phase_end">17-Jan-2017</td>
+                </tr>
+                
+                <tr class="row type_3">
+                    <!-- start 1484691261.93585 -->
+                    <!-- end 1485036861.93585 -->
+                    <!-- phase 1484864061.93585 -->
+                    <td class="cell phase_name">Last Quarter Moon</td>
+                    <td class="cell phase_start">18-Jan-2017</td>
+                    <td class="cell phase_date">20-Jan-2017</td>
+                    <td class="cell phase_end">22-Jan-2017</td>
+                </tr>
+                
+                <tr class="row type_0">
+                    <!-- start 1485216499.77496 -->
+                    <!-- end 1485994099.77496 -->
+                    <!-- phase 1485562099.77496 -->
+                    <td class="cell phase_name">The New Moon</td>
+                    <td class="cell phase_start">23-Jan-2017</td>
+                    <td class="cell phase_date">28-Jan-2017</td>
+                    <td class="cell phase_end">01-Feb-2017</td>
+                </tr>
+                
+                <tr class="row type_1">
+                    <!-- start 1486009187.59093 -->
+                    <!-- end 1486354787.59093 -->
+                    <!-- phase 1486181987.59093 -->
+                    <td class="cell phase_name">First Quarter Moon</td>
+                    <td class="cell phase_start">02-Feb-2017</td>
+                    <td class="cell phase_date">04-Feb-2017</td>
+                    <td class="cell phase_end">06-Feb-2017</td>
+                </tr>
+                
+                </tbody>
+            </table>
+        </div>
+        <div id="new" class="stuff">
+            <h1>New Moon Phase</h1>
+            <p>There is a total of 9 days that straddle The New Moon Phase.</p>
+            <p>DINNER: Take 5-9 days (ideally consecutive days and central to the New  Moon):</p>
+        </div>
+        <div id="quarter" class="stuff">
+            Quarter Moon Phase
+        </div>
+        <div id="full" class="stuff">
+            Full Moon Phase
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+    <script>
+        function flip(id) {
+            var element_id = id;
+            $( ".stuff" ).each(function( index, id ) {
+                console.log( index + ": " + $( this ).attr('id') );
+                console.log('clicked ' + element_id);
+                var current_element_id  = $( this ).attr('id');
+                if (element_id === current_element_id ) {
+                    console.log('showing ' + current_element_id);
+                    $('#' + current_element_id).show();
+                } else {
+                    console.log('hiding ' + current_element_id);
+                    $('#' + current_element_id).hide();
+                }
+            });
+        }
+
+        $( document ).ready(function() {
+            //default visibility
+            console.log('dom loaded');
+            $('#phaselist' ).show();
+            $( '#new' ).hide();
+            $( '#quarter' ).hide();
+            $( '#full' ).hide();
+        });
+    </script>
 </body>
 </html>

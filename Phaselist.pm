@@ -99,8 +99,6 @@ sub list() {
             #print Dumper(\%phase_next);
         }
 
-
-
         #if full moon or new moon
         if ($table[$row]{type} == 0 || $table[$row]{type} == 2) {
 
@@ -125,36 +123,11 @@ sub list() {
         $table[$row]{phase_formatted} = strftime $date_format, localtime $phase_current{phase};
     }
 
+    #pop off the last element for now -- dates are screwed up
     pop @table;
 
     return @table;
 }
 
-sub html_print() {
-    #print "Content-type: text/html\n\n";
-    print "<html>\n";
-    print "<head>\n";
-    print '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">' . "\n";
-    #print "<link href='default.css' rel='stylesheet'>";
-    print "</head>\n";
-    print "<body>\n";
-    print "<div class='container-fluid'>\n";
-    print "<table>\n";
-    print "<tr><th>Phase Name</th><th>Phase Start</th><th>Phase Date</th><th>Phase End</th></tr>";
-    for( my $row = 0; $row < scalar @_ -1; $row++ ) {
-        printf "<tr class=\"cell row type_%s\">\n", $_[$row]{type};
-        printf "\t<td class=\"cell phase_name\">%s</td> \n", $_[$row]{name};
-        printf "\t<td class=\"cell phase_start\">%s</td> \n", $_[$row]{start_formatted};
-        printf "\t<td class=\"cell phase_date\">%s</td> \n", $_[$row]{phase_formatted};
-        printf "\t<td class=\"cell phase_end\">%s</td> \n", $_[$row]{end_formatted};
-        print "</tr>\n";
-    }
-    print "</table>";
-    print '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>';
-    print '<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>';
-    print '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>';
-    print "</div>";
-    print "</body></html>";
-}
 
 1;

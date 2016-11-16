@@ -3,9 +3,10 @@
 use strict;
 
 require Phaselist;
+
 require HTML::Template;
 
-use constant TMPL_FILE => "./templates/html.tmpl";
+use constant TMPL_FILE => "./templates/phaselist_template.html";
 
 my @list = Phaselist::list();
 
