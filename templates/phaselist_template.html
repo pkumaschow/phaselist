@@ -65,10 +65,10 @@
                     <!-- start <TMPL_VAR NAME="start"> -->
                     <!-- end <TMPL_VAR NAME="end"> -->
                     <!-- phase <TMPL_VAR NAME="phase"> -->
-                    <td class="cell phase_name"><TMPL_VAR NAME="name"></td>
-                    <td class="cell phase_start"><TMPL_VAR NAME="start_formatted"></td>
-                    <td class="cell phase_date"><TMPL_VAR NAME="phase_formatted"></td>
-                    <td class="cell phase_end"><TMPL_VAR NAME="end_formatted"></td>
+                    <td onclick="flip(<TMPL_VAR NAME="type">);" class="cell phase_name"><TMPL_VAR NAME="name"></td>
+                    <td onclick="flip(<TMPL_VAR NAME="type">);" class="cell phase_start"><TMPL_VAR NAME="start_formatted"></td>
+                    <td onclick="flip(<TMPL_VAR NAME="type">);" class="cell phase_date"><TMPL_VAR NAME="phase_formatted"></td>
+                    <td onclick="flip(<TMPL_VAR NAME="type">);" class="cell phase_end"><TMPL_VAR NAME="end_formatted"></td>
                 </tr>
                 </TMPL_LOOP>
                 </tbody>
@@ -91,7 +91,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
     <script>
         function flip(id) {
-            var element_id = id;
+            var element_id;
+            var just_do_it = true;
+            var phase_list = ['new','quarter','full','quarter'];
+            if (phase_list[parseInt(id)]) {
+                element_id = phase_list[id];
+            } else {
+                element_id = id;
+                //don't just flip it if a menu item was clicked
+                just_do_it = false;
+            }
+
             $( ".stuff" ).each(function( index, id ) {
                 console.log( index + ": " + $( this ).attr('id') );
                 console.log('clicked ' + element_id);
