@@ -5,31 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
     <style>
-    body {
-        font-family: 'PT Sans Narrow', sans-serif;
-        padding-top: 65px;
-    }
-    tr.row:hover {
-        background: orange;
-    }
-    .type_0 {
-        background-color: #000;
-        color: white;
-    }
+        body {
+            font-family: 'PT Sans Narrow', sans-serif;
+            padding-top: 65px;
+        }
+        tr.row:hover {
+            background: orange;
+         }
+        .type_0 {
+            background-color: #000;
+            color: white;
+        }
+        .type_1 {
+            background-color: aliceblue;
+        }
 
-    .type_1 {
-        background-color: aliceblue;
-    }
-
-    .type_3 {
-        background-color: aliceblue;
-    }
+       .type_3 {
+            background-color: aliceblue;
+        }
+        .renewal {
+            color: blue;
+        }
+        .maintenance {
+            color: red;
+        }
     </style>
 </head>
 <body>
 
 
-    <nav style="diplay:block" class="navbar navbar-fixed-top navbar-dark bg-inverse">
+    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+        <div class="container-fluid">
       <a class="navbar-brand" href="#">Phase List</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
@@ -44,10 +50,11 @@
           <li class="nav-item">
               <a id="full-link" class="nav-link" href="javascript:void(0)" onclick="flip('full');">Full Moon</a>
           </li>
-        <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">About</a>
-        </li>
+        <!--<li class="nav-item">-->
+          <!--<a class="nav-link" href="javascript:void(0)">About</a>-->
+        <!--</li>-->
       </ul>
+            </div>
     </nav>
 
 
@@ -77,13 +84,46 @@
         <div id="new" class="stuff">
             <h1>New Moon Phase</h1>
             <p>There is a total of 9 days that straddle The New Moon Phase.</p>
-            <p>DINNER: Take 5-9 days (ideally consecutive days and central to the New  Moon):</p>
+            <table>
+                <tr>
+                    <td valign="top">Dinner</td>
+                    <td>
+                        <p>Take 5-9 days (ideally consecutive days and central to the New  Moon):</p>
+                        <p>Lunar Bioforce Powders</p>
+                        <p>1/2 - 3/4 tsp of <span class="renewal">Renewal</span> powder.</p>
+                        <p>1/4 tsp of <span class="maintenance">Maintenance</span> powder.</p>
+
+                        <TMPL_INCLUDE NAME="powders_template.html">
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">Breakfast</td>
+                    <td>
+                        <p>Optional—take 5-9 days (ideally consecutive days and central to the New  Moon):</p>
+                        <p>Lunar Bioforce Powders</p>
+                        <p>1/2 - 3/4 tsp of <span class="renewal">Renewal</span> powder.</p>
+                        <p>1/4 tsp of <span class="maintenance">Maintenance</span> powder.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">Pre Breakfast<br>Post Dinner</td>
+                    <td>
+                        <p>Take on <b>All</b> Days</p>
+                        <p>Take 8 drops of Animal Kingdom + 8 drops of Plant Kingdom = 16 drops of ELEMENTAL Tinctures. The total amount is 32 drops daily.</p>
+
+                        <TMPL_INCLUDE NAME="tinctures_template.html">
+                    </td>
+                </tr>
+
+            </table>
         </div>
         <div id="quarter" class="stuff">
-            Quarter Moon Phase
+            <h1>Quarter Moon Phase</h1>
+            <p>There is a total of 5 days that straddles The Quarter Moon Phases.</p>
         </div>
         <div id="full" class="stuff">
-            Full Moon Phase
+            <h1>Full Moon Phase</h1>
+            <p>There is a total of 9 days that straddle The Full Moon Phase.</p>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>

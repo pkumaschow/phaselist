@@ -5,31 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
     <style>
-    body {
-        font-family: 'PT Sans Narrow', sans-serif;
-        padding-top: 65px;
-    }
-    tr.row:hover {
-        background: orange;
-    }
-    .type_0 {
-        background-color: #000;
-        color: white;
-    }
+        body {
+            font-family: 'PT Sans Narrow', sans-serif;
+            padding-top: 65px;
+        }
+        tr.row:hover {
+            background: orange;
+         }
+        .type_0 {
+            background-color: #000;
+            color: white;
+        }
+        .type_1 {
+            background-color: aliceblue;
+        }
 
-    .type_1 {
-        background-color: aliceblue;
-    }
-
-    .type_3 {
-        background-color: aliceblue;
-    }
+       .type_3 {
+            background-color: aliceblue;
+        }
+        .renewal {
+            color: blue;
+        }
+        .maintenance {
+            color: red;
+        }
     </style>
 </head>
 <body>
 
 
-    <nav style="diplay:block" class="navbar navbar-fixed-top navbar-dark bg-inverse">
+    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+        <div class="container-fluid">
       <a class="navbar-brand" href="#">Phase List</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
@@ -44,10 +50,11 @@
           <li class="nav-item">
               <a id="full-link" class="nav-link" href="javascript:void(0)" onclick="flip('full');">Full Moon</a>
           </li>
-        <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">About</a>
-        </li>
+        <!--<li class="nav-item">-->
+          <!--<a class="nav-link" href="javascript:void(0)">About</a>-->
+        <!--</li>-->
       </ul>
+            </div>
     </nav>
 
 
@@ -60,16 +67,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                
-                <tr class="row type_0">
-                    <!-- start 1477503593.00071 -->
-                    <!-- end 1478281193.00071 -->
-                    <!-- phase 1477849193.00071 -->
-                    <td onclick="flip(0);" class="cell phase_name">The New Moon</td>
-                    <td onclick="flip(0);" class="cell phase_start">27-Oct-2016</td>
-                    <td onclick="flip(0);" class="cell phase_date">31-Oct-2016</td>
-                    <td onclick="flip(0);" class="cell phase_end">05-Nov-2016</td>
-                </tr>
                 
                 <tr class="row type_1">
                     <!-- start 1478375568.55456 -->
@@ -201,19 +198,79 @@
                     <td onclick="flip(1);" class="cell phase_end">06-Feb-2017</td>
                 </tr>
                 
+                <tr class="row type_2">
+                    <!-- start 1486427638.63014 -->
+                    <!-- end 1487205238.63014 -->
+                    <!-- phase 1486773238.63014 -->
+                    <td onclick="flip(2);" class="cell phase_name">The Full Moon</td>
+                    <td onclick="flip(2);" class="cell phase_start">07-Feb-2017</td>
+                    <td onclick="flip(2);" class="cell phase_date">11-Feb-2017</td>
+                    <td onclick="flip(2);" class="cell phase_end">16-Feb-2017</td>
+                </tr>
+                
                 </tbody>
             </table>
         </div>
         <div id="new" class="stuff">
             <h1>New Moon Phase</h1>
             <p>There is a total of 9 days that straddle The New Moon Phase.</p>
-            <p>DINNER: Take 5-9 days (ideally consecutive days and central to the New  Moon):</p>
+            <table>
+                <tr>
+                    <td valign="top">Dinner</td>
+                    <td>
+                        <p>Take 5-9 days (ideally consecutive days and central to the New  Moon):</p>
+                        <p>Lunar Bioforce Powders</p>
+                        <p>1/2 - 3/4 tsp of <span class="renewal">Renewal</span> powder.</p>
+                        <p>1/4 tsp of <span class="maintenance">Maintenance</span> powder.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <p>General Information Re Powders:</p>
+<ol type="a">
+    <li>Can be taken between Dinner and Late Dinner. It may be swallowed with good food, fruit juice, herb tea, coffee (not instant coffee), red or white wines and purified water.</li>
+    <li>A good option can be to mix Yogurt, Buttermilk or Kefir with high quality oil, and may be taken at any time.</li>
+</ol>
+<p><b>Note:</b>  Use carbonated water only if you are  taking a High Altitude, Long Distant Flight. </p>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">Breakfast</td>
+                    <td>
+                        <p>Optional—take 5-9 days (ideally consecutive days and central to the New  Moon):</p>
+                        <p>Lunar Bioforce Powders</p>
+                        <p>1/2 - 3/4 tsp of <span class="renewal">Renewal</span> powder.</p>
+                        <p>1/4 tsp of <span class="maintenance">Maintenance</span> powder.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">Pre Breakfast<br>Post Dinner</td>
+                    <td>
+                        <p>Take on <b>All</b> Days</p>
+                        <p>Take 8 drops of Animal Kingdom + 8 drops of Plant Kingdom = 16 drops of ELEMENTAL Tinctures. The total amount is 32 drops daily.</p>
+
+                        <p>General Information Re Tinctures:</p>
+<ol type="a">
+    <li>The tinctures are to be mixed with natural juice & non-carbonated water, according to personal taste preference. It should not be less than ±250 ml. and that the ratio is ±20% of natural juice to ±80% of water.</li>
+    <li>It is optional to take extra doses of PK&AK Tinctures: i.e. Mid-Morning & Mid-Afternoon. An additional dose may be taken after fitness training… during hot/torrid weather… or if extra doses are needed to assist with temporary stress, whether emotional, philosophical or physical.</li>
+    <li>If you prefer to take less of the PK&AK Tinctures, that is fine. It is your choice, let your taste dictate.</li>
+</ol>
+<p><b>Note:</b> Those who experience high blood sugar levels should use their discretion regarding the ratio of juice to water—or if a person is diagnosed by a Doctor as diabetic.</p>
+
+                    </td>
+                </tr>
+
+            </table>
         </div>
         <div id="quarter" class="stuff">
-            Quarter Moon Phase
+            <h1>Quarter Moon Phase</h1>
+            <p>There is a total of 5 days that straddles The Quarter Moon Phases.</p>
         </div>
         <div id="full" class="stuff">
-            Full Moon Phase
+            <h1>Full Moon Phase</h1>
+            <p>There is a total of 9 days that straddle The Full Moon Phase.</p>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
