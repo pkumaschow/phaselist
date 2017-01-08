@@ -7,11 +7,21 @@
     <style>
         body {
             font-family: 'PT Sans Narrow', sans-serif;
-            padding-top: 65px;
+        }
+        .instructions {
+            padding-top: 10px;
         }
         tr.row:hover {
             background: orange;
+            cursor: pointer;
          }
+        .column1 {
+            background-color: lightgrey;
+            border: solid 1px black;
+        }
+        td {
+            padding: 10px;
+        }
         .type_0 {
             background-color: #000;
             color: white;
@@ -33,33 +43,33 @@
 </head>
 <body>
 
-
-    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-        <div class="container-fluid">
-      <a class="navbar-brand" href="#">Phase List</a>
-      <ul class="nav navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)" onclick="flip('phaselist');">Dates</a>
-        </li>
-        <li class="nav-item">
-            <a id="new-link" class="nav-link" href="javascript:void(0)" onclick="flip('new');">New Moon</a>
-        </li>
-          <li class="nav-item">
-              <a id="quarter-link" class="nav-link" href="javascript:void(0)" onclick="flip('quarter');">Quarter Moon</a>
-          </li>
-          <li class="nav-item">
-              <a id="full-link" class="nav-link" href="javascript:void(0)" onclick="flip('full');">Full Moon</a>
-          </li>
-        <!--<li class="nav-item">-->
-          <!--<a class="nav-link" href="javascript:void(0)">About</a>-->
-        <!--</li>-->
-      </ul>
-            </div>
+    <nav role="navigation" class="navbar navbar-dark bg-inverse">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand">Phase List</a> </div>
+        </div>
+        <div id="navbarCollapse" class="navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)" onclick="flip('phaselist');">Dates</a>
+                </li>
+                <li class="nav-item">
+                    <a id="new-link" class="nav-link" href="javascript:void(0)" onclick="flip('new');">New Moon</a>
+                </li>
+                <li class="nav-item">
+                    <a id="quarter-link" class="nav-link" href="javascript:void(0)" onclick="flip('quarter');">Quarter Moon</a>
+                </li>
+                <li class="nav-item">
+                    <a id="full-link" class="nav-link" href="javascript:void(0)" onclick="flip('full');">Full Moon</a>
+                </li>
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link" href="javascript:void(0)">About</a>-->
+                <!--</li>-->
+            </ul>
+        </div>
     </nav>
 
-
     <div class='container-fluid'>
-        <div id="phaselist" class="stuff table-responsive">
+        <div id="phaselist" class="content table-responsive">
             <table class="table">
                 <thead>
                 <tr>
@@ -81,12 +91,12 @@
                 </tbody>
             </table>
         </div>
-        <div id="new" class="stuff">
+        <div id="new" class="content instructions">
             <h1>New Moon Phase</h1>
             <p>There is a total of 9 days that straddle The New Moon Phase.</p>
             <table>
                 <tr>
-                    <td valign="top">Dinner</td>
+                    <td valign="top" class="column1">Dinner</td>
                     <td>
                         <p>Take 5-9 days (ideally consecutive days and central to the New  Moon):</p>
                         <p>Lunar Bioforce Powders</p>
@@ -97,7 +107,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td valign="top">Breakfast</td>
+                    <td valign="top" class="column1">Breakfast</td>
                     <td>
                         <p>Optional—take 5-9 days (ideally consecutive days and central to the New  Moon):</p>
                         <p>Lunar Bioforce Powders</p>
@@ -106,7 +116,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td valign="top">Pre Breakfast<br>Post Dinner</td>
+                    <td valign="top" class="column1">Pre Breakfast /<br>Post Dinner</td>
                     <td>
                         <p>Take on <b>All</b> Days</p>
                         <p>Take 8 drops of Animal Kingdom + 8 drops of Plant Kingdom = 16 drops of ELEMENTAL Tinctures. The total amount is 32 drops daily.</p>
@@ -117,11 +127,11 @@
 
             </table>
         </div>
-        <div id="quarter" class="stuff">
+        <div id="quarter" class="content instructions">
             <h1>Quarter Moon Phase</h1>
             <p>There is a total of 5 days that straddles The Quarter Moon Phases.</p>
         </div>
-        <div id="full" class="stuff">
+        <div id="full" class="content instructions">
             <h1>Full Moon Phase</h1>
             <p>There is a total of 9 days that straddle The Full Moon Phase.</p>
         </div>
@@ -142,7 +152,7 @@
                 just_do_it = false;
             }
 
-            $( ".stuff" ).each(function( index, id ) {
+            $( ".content" ).each(function( index, id ) {
                 console.log( index + ": " + $( this ).attr('id') );
                 console.log('clicked ' + element_id);
                 var current_element_id  = $( this ).attr('id');
