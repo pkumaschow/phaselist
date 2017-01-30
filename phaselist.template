@@ -10,15 +10,20 @@ Parameters:
 
 Resources:
 
-  PhaseListDailyRule:
-    Type: "AWS::Events::Rule"
+#  PhaseListDailyRule:
+#    Type: "AWS::Events::Rule"
+#    Properties:
+#      Description: "Schedule for running the PhaseList Lambda function"
+#      Name: PhaseListScheduleRule
+#      ScheduleExpression: "cron(0 10 * * ? *)"
+#      State: Enabled
+#      Targets:
+#        - Ref: PhaseListLambda
+
+  LogGroup: 
+    Type: AWS::Logs::LogGroup
     Properties:
-      Description: "Schedule for running the PhaseList Lambda function"
-      Name: PhaseListScheduleRule
-      ScheduleExpression: "cron(0 10 * * ? *)"
-      State: Enabled
-      Targets:
-        - Ref: PhaseListLambda
+      RetentionInDays: 5
 
   PhaseListRole:
     Type: AWS::IAM::Role
@@ -28,23 +33,25 @@ Resources:
         Statement:
           -
             Effect: "Allow"
+            Principal: 
+              Service: 
+                - "s3.amazonaws.com"
             Action:
-              -  "s3:PutObject"
-            Principal: "AWSLambdaBasicExecutionRole"
+              -  "sts:AssumeRole"
       Path: "/"
       RoleName: {"Fn::Join": ["", [{"Ref": "AWS::Region"}, {"Ref": "PhaseListBucketName"}]]}
 
-  PhaseListLambda:
-    Type: AWS::Lambda::Function
-    Properties:
-      Description: "Test Lambda Function"
-      FunctionName: PhaseList
-      Handler: index.my_handler
-      MemorySize: 128
-      Role: !Ref PhaseListRole
-      Runtime: python2.7
-      Code:
-        ZipFile: lambda/lambda.zip
+#  PhaseListLambda:
+#    Type: AWS::Lambda::Function
+#    Properties:
+#      Description: "Test Lambda Function"
+#      FunctionName: PhaseList
+#      Handler: index.my_handler
+#      MemorySize: 128
+#      Role: !Ref PhaseListRole
+#      Runtime: python2.7
+#      Code:
+#        ZipFile: lambda/lambda.zip
 
   S3Bucket:
     Type: AWS::S3::Bucket
