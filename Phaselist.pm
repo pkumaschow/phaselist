@@ -1,7 +1,8 @@
 #!/usr/bin/perl
 
-#    Phaselist 
-#    Copyright (C) 2017 Peter Kumaschow 
+#    Phaselist Module
+#
+#    Copyright (C) 2017 Peter Kumaschow
 #
 #    This program is f ee software; you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by

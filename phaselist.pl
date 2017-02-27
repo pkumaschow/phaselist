@@ -1,7 +1,8 @@
 #!/usr/bin/env perl
 
-#    phaselist 
-#    Copyright (C) 2017 Peter Kumaschow 
+#    phaselist
+#
+#    Copyright (C) 2017 Peter Kumaschow
 #
 #    This program is f ee software; you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -31,7 +32,7 @@ my $tmpl = new HTML::Template( filename => TMPL_FILE );
 
 print "<!-- Phaselist version 1.0, Copyright (C) 2017 Peter Kumaschow -->\n";
 print "<!-- Phaselist comes with ABSOLUTELY NO WARRANTY -->\n";
-print "<!-- This is free software, and you are welcome to redistrubute it\n";
+print "<!-- This is free software, and you are welcome to redistrubute it -->\n";
 print "<!-- under certain conditions; -->\n\n";
 
 $tmpl->param( phase_list => \@list );
