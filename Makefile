@@ -1,6 +1,7 @@
-TEMPLATE_FILE :=  "file://phaselist.template"
+TEMPLATE_FILE :=  "file://cfn_phaselist.yaml"
 APPLICATION_NAME := "phaselist"
 PARAMS_FILE := "file://params.json"
+DOCKER_CMD := "/usr/bin/docker"
 
 export AWS_DEFAULT_REGION := us-west-2
 
@@ -36,7 +37,7 @@ delete-stack:
 	aws cloudformation wait stack-delete-complete --stack-name $(APPLICATION_NAME)
 
 publish-html:
-	docker run --rm --name phaselist -t pkumaschow/phaselist > phaselist.html
+	$(DOCKER_CMD) run --rm --name phaselist -t pkumaschow/phaselist > phaselist.html
 	aws s3 cp public/default.css s3://phaselist
 	aws s3 cp phaselist.html s3://phaselist	
 
