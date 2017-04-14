@@ -67,17 +67,17 @@ Resources:
                     Ref: PhaseListBucketName
                   - "/*"
 
-#  PhaseListLambda:
-#    Type: AWS::Lambda::Function
-#    Properties:
-#      Description: "Test Lambda Function"
-#      FunctionName: PhaseList
-#      Handler: index.my_handler
-#      MemorySize: 128
-#      Role: !Ref PhaseListRole
-#      Runtime: python2.7
-#      Code:
-#        ZipFile: lambda/lambda.zip
+  PhaseListLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      Description: "Test Lambda Function"
+      FunctionName: PhaseList
+      Handler: index.my_handler
+      MemorySize: 128
+      Role: !GetAtt PhaseListRole.Arn 
+      Runtime: python2.7
+      Code:
+        ZipFile: lambda/lambda.zip
 
   S3Bucket:
     Type: AWS::S3::Bucket
