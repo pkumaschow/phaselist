@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
     <style>
         body {
             font-family: 'PT Sans Narrow', sans-serif;
@@ -88,14 +88,8 @@
                 </tbody>
             </table>
         </div>
-        <div id="new" class="content instructions">
-            <h1>New Moon Phase</h1>
-            <p>There is a total of 9 days that straddle The New Moon Phase.</p>
-        </div>
-        <div id="quarter" class="content instructions">
-            <h1>Quarter Moon Phase</h1>
-            <p>There is a total of 5 days that straddles The Quarter Moon Phases.</p>
-        </div>
+        <TMPL_INCLUDE NAME="new_template.html">
+        <TMPL_INCLUDE NAME="quarter_template.html">
         <div id="full" class="content instructions">
             <h1>Full Moon Phase</h1>
             <p>There is a total of 9 days that straddle The Full Moon Phase.</p>
