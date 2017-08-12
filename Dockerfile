@@ -1,4 +1,4 @@
-# DOCKER-VERSION 1.12.2
+# DOCKER-VERSION 17.06.0-ce, build 02c1d87
 FROM    perl:latest
 
 LABEL   version="1.0"
@@ -11,6 +11,7 @@ RUN     cpanm Carton
 
 RUN     cachebuster=b976b99 git clone https://github.com/pkumaschow/phaselist
 RUN     cd phaselist && carton install
+RUN     mv /root/phaselist/Phaselist.pm /root/phaselist/local/lib/perl5/
 
-WORKDIR phaselist
+WORKDIR /root/phaselist
 CMD     perl -I local/lib/perl5 phaselist.pl

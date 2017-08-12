@@ -8,18 +8,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <style>
         body {
             font-family: 'PT Sans Narrow', sans-serif;
         }
         .instructions {
             padding-top: 10px;
+            padding-left: 2em;
+            padding-right: 2em;
         }
-        tr.row:hover {
+        tr.type_0:hover , 
+        tr.type_1:hover ,
+        tr.type_2:hover ,
+        tr.type_3:hover {
             background: orange;
             cursor: pointer;
          }
+        tr.type_0:hover {
+            color: black;
+        }
         .column1 {
             background-color: lightgrey;
             border: solid 1px black;
@@ -48,20 +56,20 @@
 </head>
 <body>
 
-    <nav role="navigation" class="navbar navbar-dark bg-inverse">
+    <nav role="navigation" class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="navbar-header">
-            <a class="navbar-brand" href="javascript:void(0)" onclick="flip('phaselist');">Phase List</a> </div>
+            <a class="navbar-brand" href="#" onclick="flip('phaselist');">Phase List</a> </div>
         </div>
-        <div id="navbarCollapse" class="navbar-collapse">
-            <ul class="nav navbar-nav">
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a id="new-link" class="nav-link" href="javascript:void(0)" onclick="flip('new');">New Moon</a>
+                    <a id="new-link" class="nav-link" href="#" onclick="flip('new');">New Moon</a>
                 </li>
                 <li class="nav-item">
-                    <a id="quarter-link" class="nav-link" href="javascript:void(0)" onclick="flip('quarter');">Quarter Moon</a>
+                    <a id="quarter-link" class="nav-link" href="#" onclick="flip('quarter');">Quarter Moon</a>
                 </li>
                 <li class="nav-item">
-                    <a id="full-link" class="nav-link" href="javascript:void(0)" onclick="flip('full');">Full Moon</a>
+                    <a id="full-link" class="nav-link" href="#" onclick="flip('full');">Full Moon</a>
                 </li>
                 <!--<li class="nav-item">-->
                 <!--<a class="nav-link" href="javascript:void(0)">About</a>-->
@@ -70,7 +78,7 @@
         </div>
     </nav>
 
-    <div class='container-fluid'>
+    <div class=''>
         <div id="phaselist" class="content table-responsive">
             <table class="table">
                 <thead>
@@ -80,150 +88,150 @@
                 </thead>
                 <tbody>
                 
-                <tr class="row type_3">
-                    <!-- start 1497526501.86582 -->
-                    <!-- end 1497872101.86582 -->
-                    <!-- phase 1497699301.86582 -->
-                    <td onclick="flip(3);" class="cell phase_name">Last Quarter Moon</td>
-                    <td onclick="flip(3);" class="cell phase_start">15-Jun-2017</td>
-                    <td onclick="flip(3);" class="cell phase_date">17-Jun-2017</td>
-                    <td onclick="flip(3);" class="cell phase_end">19-Jun-2017</td>
-                </tr>
-                
-                <tr class="row type_0">
-                    <!-- start 1497925963.20936 -->
-                    <!-- end 1498703563.20936 -->
-                    <!-- phase 1498271563.20936 -->
-                    <td onclick="flip(0);" class="cell phase_name">The New Moon</td>
-                    <td onclick="flip(0);" class="cell phase_start">20-Jun-2017</td>
-                    <td onclick="flip(0);" class="cell phase_date">24-Jun-2017</td>
-                    <td onclick="flip(0);" class="cell phase_end">28-Jun-2017</td>
-                </tr>
-                
-                <tr class="row type_1">
-                    <!-- start 1498697507.00701 -->
-                    <!-- end 1499043107.00701 -->
-                    <!-- phase 1498870307.00701 -->
-                    <td onclick="flip(1);" class="cell phase_name">First Quarter Moon</td>
-                    <td onclick="flip(1);" class="cell phase_start">29-Jun-2017</td>
-                    <td onclick="flip(1);" class="cell phase_date">01-Jul-2017</td>
-                    <td onclick="flip(1);" class="cell phase_end">03-Jul-2017</td>
-                </tr>
-                
-                <tr class="row type_2">
-                    <!-- start 1499227711.33594 -->
-                    <!-- end 1500005311.33594 -->
-                    <!-- phase 1499573311.33594 -->
-                    <td onclick="flip(2);" class="cell phase_name">The Full Moon</td>
-                    <td onclick="flip(2);" class="cell phase_start">04-Jul-2017</td>
-                    <td onclick="flip(2);" class="cell phase_date">09-Jul-2017</td>
-                    <td onclick="flip(2);" class="cell phase_end">13-Jul-2017</td>
-                </tr>
-                
-                <tr class="row type_3">
-                    <!-- start 1500060458.28606 -->
-                    <!-- end 1500406058.28606 -->
-                    <!-- phase 1500233258.28606 -->
-                    <td onclick="flip(3);" class="cell phase_name">Last Quarter Moon</td>
-                    <td onclick="flip(3);" class="cell phase_start">14-Jul-2017</td>
-                    <td onclick="flip(3);" class="cell phase_date">16-Jul-2017</td>
-                    <td onclick="flip(3);" class="cell phase_end">18-Jul-2017</td>
-                </tr>
-                
-                <tr class="row type_0">
-                    <!-- start 1500457646.13564 -->
-                    <!-- end 1501235246.13564 -->
-                    <!-- phase 1500803246.13564 -->
-                    <td onclick="flip(0);" class="cell phase_name">The New Moon</td>
-                    <td onclick="flip(0);" class="cell phase_start">19-Jul-2017</td>
-                    <td onclick="flip(0);" class="cell phase_date">23-Jul-2017</td>
-                    <td onclick="flip(0);" class="cell phase_end">27-Jul-2017</td>
-                </tr>
-                
-                <tr class="row type_1">
+                <tr class="type_1">
                     <!-- start 1501255437.82934 -->
                     <!-- end 1501601037.82934 -->
                     <!-- phase 1501428237.82934 -->
-                    <td onclick="flip(1);" class="cell phase_name">First Quarter Moon</td>
+                    <td scope="row" onclick="flip(1);" class="cell phase_name">First Quarter Moon</td>
                     <td onclick="flip(1);" class="cell phase_start">28-Jul-2017</td>
                     <td onclick="flip(1);" class="cell phase_date">30-Jul-2017</td>
                     <td onclick="flip(1);" class="cell phase_end">01-Aug-2017</td>
                 </tr>
                 
-                <tr class="row type_2">
+                <tr class="type_2">
                     <!-- start 1501783967.38192 -->
                     <!-- end 1502561567.38192 -->
                     <!-- phase 1502129567.38192 -->
-                    <td onclick="flip(2);" class="cell phase_name">The Full Moon</td>
+                    <td scope="row" onclick="flip(2);" class="cell phase_name">The Full Moon</td>
                     <td onclick="flip(2);" class="cell phase_start">02-Aug-2017</td>
                     <td onclick="flip(2);" class="cell phase_date">07-Aug-2017</td>
                     <td onclick="flip(2);" class="cell phase_end">12-Aug-2017</td>
                 </tr>
                 
-                <tr class="row type_3">
+                <tr class="type_3">
                     <!-- start 1502587011.971 -->
                     <!-- end 1502932611.971 -->
                     <!-- phase 1502759811.971 -->
-                    <td onclick="flip(3);" class="cell phase_name">Last Quarter Moon</td>
+                    <td scope="row"  onclick="flip(3);" class="cell phase_name">Last Quarter Moon</td>
                     <td onclick="flip(3);" class="cell phase_start">13-Aug-2017</td>
                     <td onclick="flip(3);" class="cell phase_date">15-Aug-2017</td>
                     <td onclick="flip(3);" class="cell phase_end">17-Aug-2017</td>
                 </tr>
                 
-                <tr class="row type_0">
+                <tr class="type_0">
                     <!-- start 1502994694.47675 -->
                     <!-- end 1503772294.47675 -->
                     <!-- phase 1503340294.47675 -->
-                    <td onclick="flip(0);" class="cell phase_name">The New Moon</td>
+                    <td scope="row" onclick="flip(0);" class="cell phase_name">The New Moon</td>
                     <td onclick="flip(0);" class="cell phase_start">17-Aug-2017</td>
                     <td onclick="flip(0);" class="cell phase_date">21-Aug-2017</td>
                     <td onclick="flip(0);" class="cell phase_end">26-Aug-2017</td>
                 </tr>
                 
-                <tr class="row type_1">
+                <tr class="type_1">
                     <!-- start 1503821659.72804 -->
                     <!-- end 1504167259.72804 -->
                     <!-- phase 1503994459.72804 -->
-                    <td onclick="flip(1);" class="cell phase_name">First Quarter Moon</td>
+                    <td scope="row" onclick="flip(1);" class="cell phase_name">First Quarter Moon</td>
                     <td onclick="flip(1);" class="cell phase_start">27-Aug-2017</td>
                     <td onclick="flip(1);" class="cell phase_date">29-Aug-2017</td>
                     <td onclick="flip(1);" class="cell phase_end">31-Aug-2017</td>
                 </tr>
                 
-                <tr class="row type_2">
+                <tr class="type_2">
                     <!-- start 1504335895.05556 -->
                     <!-- end 1505113495.05556 -->
                     <!-- phase 1504681495.05556 -->
-                    <td onclick="flip(2);" class="cell phase_name">The Full Moon</td>
+                    <td scope="row" onclick="flip(2);" class="cell phase_name">The Full Moon</td>
                     <td onclick="flip(2);" class="cell phase_start">01-Sep-2017</td>
                     <td onclick="flip(2);" class="cell phase_date">06-Sep-2017</td>
                     <td onclick="flip(2);" class="cell phase_end">10-Sep-2017</td>
                 </tr>
                 
-                <tr class="row type_3">
+                <tr class="type_3">
                     <!-- start 1505111204.22723 -->
                     <!-- end 1505456804.22723 -->
                     <!-- phase 1505284004.22723 -->
-                    <td onclick="flip(3);" class="cell phase_name">Last Quarter Moon</td>
+                    <td scope="row" onclick="flip(3);" class="cell phase_name">Last Quarter Moon</td>
                     <td onclick="flip(3);" class="cell phase_start">11-Sep-2017</td>
                     <td onclick="flip(3);" class="cell phase_date">13-Sep-2017</td>
                     <td onclick="flip(3);" class="cell phase_end">15-Sep-2017</td>
                 </tr>
                 
-                <tr class="row type_0">
+                <tr class="type_0">
                     <!-- start 1505539846.74043 -->
                     <!-- end 1506317446.74043 -->
                     <!-- phase 1505885446.74043 -->
-                    <td onclick="flip(0);" class="cell phase_name">The New Moon</td>
+                    <td scope="row" onclick="flip(0);" class="cell phase_name">The New Moon</td>
                     <td onclick="flip(0);" class="cell phase_start">16-Sep-2017</td>
                     <td onclick="flip(0);" class="cell phase_date">20-Sep-2017</td>
                     <td onclick="flip(0);" class="cell phase_end">25-Sep-2017</td>
                 </tr>
                 
+                <tr class="type_1">
+                    <!-- start 1506394509.11415 -->
+                    <!-- end 1506740109.11415 -->
+                    <!-- phase 1506567309.11415 -->
+                    <td scope="row" onclick="flip(1);" class="cell phase_name">First Quarter Moon</td>
+                    <td onclick="flip(1);" class="cell phase_start">26-Sep-2017</td>
+                    <td onclick="flip(1);" class="cell phase_date">28-Sep-2017</td>
+                    <td onclick="flip(1);" class="cell phase_end">30-Sep-2017</td>
+                </tr>
+                
+                <tr class="type_2">
+                    <!-- start 1506883316.39951 -->
+                    <!-- end 1507660916.39951 -->
+                    <!-- phase 1507228916.39951 -->
+                    <td scope="row" onclick="flip(2);" class="cell phase_name">The Full Moon</td>
+                    <td onclick="flip(2);" class="cell phase_start">01-Oct-2017</td>
+                    <td onclick="flip(2);" class="cell phase_date">05-Oct-2017</td>
+                    <td onclick="flip(2);" class="cell phase_end">09-Oct-2017</td>
+                </tr>
+                
+                <tr class="type_3">
+                    <!-- start 1507638435.66532 -->
+                    <!-- end 1507984035.66532 -->
+                    <!-- phase 1507811235.66532 -->
+                    <td scope="row" onclick="flip(3);" class="cell phase_name">Last Quarter Moon</td>
+                    <td onclick="flip(3);" class="cell phase_start">10-Oct-2017</td>
+                    <td onclick="flip(3);" class="cell phase_date">12-Oct-2017</td>
+                    <td onclick="flip(3);" class="cell phase_end">14-Oct-2017</td>
+                </tr>
+                
+                <tr class="type_0">
+                    <!-- start 1508094758.97853 -->
+                    <!-- end 1508872358.97853 -->
+                    <!-- phase 1508440358.97853 -->
+                    <td scope="row" onclick="flip(0);" class="cell phase_name">The New Moon</td>
+                    <td onclick="flip(0);" class="cell phase_start">15-Oct-2017</td>
+                    <td onclick="flip(0);" class="cell phase_date">19-Oct-2017</td>
+                    <td onclick="flip(0);" class="cell phase_end">24-Oct-2017</td>
+                </tr>
+                
+                <tr class="type_1">
+                    <!-- start 1508970197.69717 -->
+                    <!-- end 1509315797.69717 -->
+                    <!-- phase 1509142997.69717 -->
+                    <td scope="row" onclick="flip(1);" class="cell phase_name">First Quarter Moon</td>
+                    <td onclick="flip(1);" class="cell phase_start">25-Oct-2017</td>
+                    <td onclick="flip(1);" class="cell phase_date">27-Oct-2017</td>
+                    <td onclick="flip(1);" class="cell phase_end">29-Oct-2017</td>
+                </tr>
+                
+                <tr class="type_2">
+                    <!-- start 1509427469.4161 -->
+                    <!-- end 1510205069.4161 -->
+                    <!-- phase 1509773069.4161 -->
+                    <td scope="row" onclick="flip(2);" class="cell phase_name">The Full Moon</td>
+                    <td onclick="flip(2);" class="cell phase_start">30-Oct-2017</td>
+                    <td onclick="flip(2);" class="cell phase_date">04-Nov-2017</td>
+                    <td onclick="flip(2);" class="cell phase_end">07-Nov-2017</td>
+                </tr>
+                
                 </tbody>
             </table>
         </div>
-                <div id="new" class="content instructions">
+        <div id="new" class="content instructions">
             <h1>New Moon Phase</h1>
             <p>There is a total of 9 days that straddle The New Moon Phase.</p>
             <table>
@@ -282,8 +290,8 @@
                     <td>
                         <p>Take 3-5 days (ideally consecutive days and central to the Quarter Moon):</p>
                         <p>Elemental Bioforce Powders</p>
-                        <p>1/4 - 1/2 tsp of <span class="renewal">Continuum1</span> powder.</p>
-                        <p>1/4 - 1/2 tsp of <span class="maintenance">Continuum2</span> powder.</p>
+                        <p>1/4 - 1/2 tsp of <span class="continuum">Continuum1</span> powder.</p>
+                        <p>1/4 - 1/2 tsp of <span class="continuum">Continuum2</span> powder.</p>
 
                         <p>General Information Re Powders:</p>
 <ol type="a">
@@ -299,8 +307,8 @@
                     <td>
                         <p>Optional—take for 3-5 days (ideally consecutive days and central to the Quarter Moon):</p>
                         <p>Elemental Bioforce Powders</p>
-                        <p>1/4 - 1/2 tsp of <span class="renewal">Continuum1</span> powder.</p>
-                        <p>1/4 - 1/2 tsp of <span class="maintenance">Continuum2</span> powder.</p>
+                        <p>1/4 - 1/2 tsp of <span class="continuum">Continuum1</span> powder.</p>
+                        <p>1/4 - 1/2 tsp of <span class="continuum">Continuum2</span> powder.</p>
                     </td>
                 </tr>
                 <tr>
@@ -326,11 +334,57 @@
         <div id="full" class="content instructions">
             <h1>Full Moon Phase</h1>
             <p>There is a total of 9 days that straddle The Full Moon Phase.</p>
+            <table>
+                <tr>
+                    <td valign="top" class="column1">Dinner</td>
+                    <td>
+                        <p>Take 5-9 days (ideally consecutive days and central to the New  Moon):</p>
+                        <p>Lunar Bioforce Powders</p>
+                        <p>1/2 - 3/4 tsp of <span class="renewal">Renewal</span> powder.</p>
+                        <p>1/4 tsp of <span class="maintenance">Maintenance</span> powder.</p>
+
+                        <p>General Information Re Powders:</p>
+<ol type="a">
+    <li>Can be taken between Dinner and Late Dinner. It may be swallowed with good food, fruit juice, herb tea, coffee (not instant coffee), red or white wines and purified water.</li>
+    <li>A good option can be to mix Yogurt, Buttermilk or Kefir with high quality oil, and may be taken at any time.</li>
+</ol>
+<p><b>Note:</b>  Use carbonated water only if you are  taking a High Altitude, Long Distant Flight. </p>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top" class="column1">Breakfast</td>
+                    <td>
+                        <p>Optional—take 5-9 days (ideally consecutive days and central to the New  Moon):</p>
+                        <p>Lunar Bioforce Powders</p>
+                        <p>1/2 - 3/4 tsp of <span class="renewal">Renewal</span> powder.</p>
+                        <p>1/4 tsp of <span class="maintenance">Maintenance</span> powder.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top" class="column1">Pre Breakfast /<br>Post Dinner</td>
+                    <td>
+                        <p>Take on <b>All</b> Days</p>
+                        <p>Take 5-8 drops of Animal Kingdom + 5-8 drops of Plant Kingdom = 10-16 drops of ELEMENTAL Tinctures. The total amount is 20-32 drops daily.</p>
+
+                        <p>General Information Re Tinctures:</p>
+<ol type="a">
+    <li>The tinctures are to be mixed with natural juice & non-carbonated water, according to personal taste preference. It should not be less than ±250 ml. and that the ratio is ±20% of natural juice to ±80% of water.</li>
+    <li>It is optional to take extra doses of PK&AK Tinctures: i.e. Mid-Morning & Mid-Afternoon. An additional dose may be taken after fitness training… during hot/torrid weather… or if extra doses are needed to assist with temporary stress, whether emotional, philosophical or physical.</li>
+    <li>If you prefer to take less of the PK&AK Tinctures, that is fine. It is your choice, let your taste dictate.</li>
+</ol>
+<p><b>Note:</b> Those who experience high blood sugar levels should use their discretion regarding the ratio of juice to water—or if a person is diagnosed by a Doctor as diabetic.</p>
+
+                    </td>
+                </tr>
+
+            </table>
         </div>
+
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script>
         function flip(id) {
             var element_id;
