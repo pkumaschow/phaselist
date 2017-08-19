@@ -23,6 +23,10 @@
         tr.type_0:hover {
             color: black;
         }
+        tr.current {
+            border-color: red;
+            border-style: solid;
+        }
         .column1 {
             background-color: lightgrey;
             border: solid 1px black;
@@ -53,7 +57,7 @@
 
     <nav role="navigation" class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#" onclick="flip('phaselist');">Phase List</a> </div>
+            <a class="navbar-brand" href="#" onclick="flip('phaselist');">Phase List</a>
         </div>
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
@@ -84,7 +88,7 @@
                 </thead>
                 <tbody>
                 <TMPL_LOOP NAME="phase_list">
-                <tr class="type_<TMPL_VAR NAME="type">">
+                <tr class="type_<TMPL_VAR NAME="type">" start="<TMPL_VAR NAME="start">" end="<TMPL_VAR NAME="end">">
                     <!-- start <TMPL_VAR NAME="start"> -->
                     <!-- end <TMPL_VAR NAME="end"> -->
                     <!-- phase <TMPL_VAR NAME="phase"> -->
@@ -138,6 +142,16 @@
             $( '#new' ).hide();
             $( '#quarter' ).hide();
             $( '#full' ).hide();
+            //highlight current date
+            var rows = $("tr[start]");
+            var now = new Date().getTime()/1000;
+            rows.each(function(index) {
+                var start = $(this).attr('start');
+                var end = $(this).attr('end');
+                if (now > start && now < end) {
+                    $(this).addClass('current');
+                }
+            });
         });
     </script>
 </body>

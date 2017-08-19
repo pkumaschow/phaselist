@@ -28,6 +28,10 @@
         tr.type_0:hover {
             color: black;
         }
+        tr.current {
+            border-color: red;
+            border-style: solid;
+        }
         .column1 {
             background-color: lightgrey;
             border: solid 1px black;
@@ -58,7 +62,7 @@
 
     <nav role="navigation" class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#" onclick="flip('phaselist');">Phase List</a> </div>
+            <a class="navbar-brand" href="#" onclick="flip('phaselist');">Phase List</a> 
         </div>
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
@@ -78,7 +82,8 @@
         </div>
     </nav>
 
-    <div class=''>
+
+    <div>
         <div id="phaselist" class="content table-responsive">
             <table class="table">
                 <thead>
@@ -88,22 +93,12 @@
                 </thead>
                 <tbody>
                 
-                <tr class="type_1">
-                    <!-- start 1501255437.82934 -->
-                    <!-- end 1501601037.82934 -->
-                    <!-- phase 1501428237.82934 -->
-                    <td scope="row" onclick="flip(1);" class="cell phase_name">First Quarter Moon</td>
-                    <td onclick="flip(1);" class="cell phase_start">28-Jul-2017</td>
-                    <td onclick="flip(1);" class="cell phase_date">30-Jul-2017</td>
-                    <td onclick="flip(1);" class="cell phase_end">01-Aug-2017</td>
-                </tr>
-                
                 <tr class="type_2">
                     <!-- start 1501783967.38192 -->
                     <!-- end 1502561567.38192 -->
                     <!-- phase 1502129567.38192 -->
                     <td scope="row" onclick="flip(2);" class="cell phase_name">The Full Moon</td>
-                    <td onclick="flip(2);" class="cell phase_start">02-Aug-2017</td>
+                    <td onclick="flip(2);" class="cell phase_start">03-Aug-2017</td>
                     <td onclick="flip(2);" class="cell phase_date">07-Aug-2017</td>
                     <td onclick="flip(2);" class="cell phase_end">12-Aug-2017</td>
                 </tr>
@@ -112,13 +107,13 @@
                     <!-- start 1502587011.971 -->
                     <!-- end 1502932611.971 -->
                     <!-- phase 1502759811.971 -->
-                    <td scope="row"  onclick="flip(3);" class="cell phase_name">Last Quarter Moon</td>
+                    <td scope="row" onclick="flip(3);" class="cell phase_name">Last Quarter Moon</td>
                     <td onclick="flip(3);" class="cell phase_start">13-Aug-2017</td>
                     <td onclick="flip(3);" class="cell phase_date">15-Aug-2017</td>
                     <td onclick="flip(3);" class="cell phase_end">17-Aug-2017</td>
                 </tr>
                 
-                <tr class="type_0">
+                <tr class="type_0" start="1502994694.47675" end="1503772294.47675">
                     <!-- start 1502994694.47675 -->
                     <!-- end 1503772294.47675 -->
                     <!-- phase 1503340294.47675 -->
@@ -128,7 +123,7 @@
                     <td onclick="flip(0);" class="cell phase_end">26-Aug-2017</td>
                 </tr>
                 
-                <tr class="type_1">
+                <tr class="type_1" start="1503821659.72804" end="1504167259.72804">
                     <!-- start 1503821659.72804 -->
                     <!-- end 1504167259.72804 -->
                     <!-- phase 1503994459.72804 -->
@@ -138,7 +133,7 @@
                     <td onclick="flip(1);" class="cell phase_end">31-Aug-2017</td>
                 </tr>
                 
-                <tr class="type_2">
+                <tr class="type_2" start="1504335895.05556" end="1505113495.05556">
                     <!-- start 1504335895.05556 -->
                     <!-- end 1505113495.05556 -->
                     <!-- phase 1504681495.05556 -->
@@ -228,10 +223,20 @@
                     <td onclick="flip(2);" class="cell phase_end">07-Nov-2017</td>
                 </tr>
                 
+                <tr class="type_3">
+                    <!-- start 1510173502.64518 -->
+                    <!-- end 1510519102.64518 -->
+                    <!-- phase 1510346302.64518 -->
+                    <td scope="row" onclick="flip(3);" class="cell phase_name">Last Quarter Moon</td>
+                    <td onclick="flip(3);" class="cell phase_start">08-Nov-2017</td>
+                    <td onclick="flip(3);" class="cell phase_date">10-Nov-2017</td>
+                    <td onclick="flip(3);" class="cell phase_end">12-Nov-2017</td>
+                </tr>
+                
                 </tbody>
             </table>
         </div>
-        <div id="new" class="content instructions">
+                <div id="new" class="content instructions">
             <h1>New Moon Phase</h1>
             <p>There is a total of 9 days that straddle The New Moon Phase.</p>
             <table>
@@ -331,7 +336,7 @@
             </table>
         </div>
 
-        <div id="full" class="content instructions">
+                <div id="full" class="content instructions">
             <h1>Full Moon Phase</h1>
             <p>There is a total of 9 days that straddle The Full Moon Phase.</p>
             <table>
@@ -419,6 +424,17 @@
             $( '#new' ).hide();
             $( '#quarter' ).hide();
             $( '#full' ).hide();
+            //highlight current date
+            var rows = $("tr[start]");
+            var now = new Date().getTime()/1000;
+            rows.each(function(index) {
+                var start = $(this).attr('start');
+                var end = $(this).attr('end');
+                if (now > start && now < end) {
+                    $(this).addClass('current');
+                }
+            });
+
         });
     </script>
 </body>
