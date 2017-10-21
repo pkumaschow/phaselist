@@ -9,7 +9,9 @@ RUN     curl -L http://cpanmin.us | perl - App::cpanminus
 
 RUN     cpanm Carton
 
-RUN     cachebuster=b776808 git clone https://github.com/pkumaschow/phaselist
+#RUN     cachebuster=b776808 git clone https://github.com/pkumaschow/phaselist
+COPY . phaselist/
+
 RUN     cd phaselist && carton install
 RUN     mv /root/phaselist/Phaselist.pm /root/phaselist/local/lib/perl5/
 
