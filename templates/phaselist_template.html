@@ -88,7 +88,25 @@
                 </thead>
                 <tbody>
                 <TMPL_LOOP NAME="phase_list">
-                <tr class="type_<TMPL_VAR NAME="type">" start="<TMPL_VAR NAME="start">" end="<TMPL_VAR NAME="end">">
+                <tr class="type_<TMPL_VAR NAME="type">" start="<TMPL_VAR NAME="start">" end="<TMPL_VAR NAME="end">" data-html="true" data-toggle="tooltip" data-placement="top" title="
+                    <TMPL_IF NAME="is_new">
+                    1/2 - 3/4 tsp of Renewal <br>
+                    1/4 tsp of Maintenance
+                    </TMPL_IF>
+                    <TMPL_IF NAME="is_full">
+                    1/2 - 3/4 tsp of Renewal <br>
+                    1/4 tsp of Maintenance
+                    </TMPL_IF>
+                    <TMPL_IF NAME="is_first">
+                    1/4 - 1/2 tsp of Continuum1 <br>
+                    1/4 - 1/2 tsp of Continuum2 
+                    </TMPL_IF>
+                    <TMPL_IF NAME="is_last">
+                    1/4 - 1/2 tsp of Continuum1 <br>
+                    1/4 - 1/2 tsp of Continuum2 
+                    </TMPL_IF>
+                ">
+
                     <!-- phase <TMPL_VAR NAME="phase"> -->
                     <td scope="row" onclick="flip(<TMPL_VAR NAME="type">);" class="cell phase_name"><TMPL_VAR NAME="name"></td>
                     <td onclick="flip(<TMPL_VAR NAME="type">);" class="cell phase_start"><TMPL_VAR NAME="start_formatted"></td>
@@ -150,6 +168,8 @@
                     $(this).addClass('current');
                 }
             });
+            //initialise tooltips
+            $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
 </body>

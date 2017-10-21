@@ -96,8 +96,13 @@ sub list() {
                               'name' => $name[$phase],
                               'start'=> $start,
                               'phase'=> $phase_time,
-                              'end'  => $end
+                              'end'  => $end,
+                              'is_new' => $phase == 0 ? 1 : 0,
+                              'is_first' => $phase == 1 ? 1 : 0,
+                              'is_full' => $phase == 2 ? 1 : 0,
+                              'is_last' => $phase == 3 ? 1 : 0,
                             );
+
 
         push @table, \%phase_current;
 
