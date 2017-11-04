@@ -39,6 +39,6 @@ delete-stack:
 publish-html:
 	$(DOCKER_CMD) run --rm --name phaselist -t pkumaschow/phaselist > phaselist.html
 	aws s3 cp public/default.css s3://phaselist
-	aws s3 cp phaselist.html s3://phaselist	
+	aws s3 cp phaselist.html s3://phaselist
 
 

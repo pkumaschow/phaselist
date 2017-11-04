@@ -20,7 +20,7 @@ Resources:
 #      Targets:
 #        - Ref: PhaseListLambda
 
-  LogGroup: 
+  LogGroup:
     Type: AWS::Logs::LogGroup
     Properties:
       RetentionInDays: 5
@@ -33,8 +33,8 @@ Resources:
         Statement:
           -
             Effect: "Allow"
-            Principal: 
-              Service: 
+            Principal:
+              Service:
                 - "s3.amazonaws.com"
               Service:
                 - "lambda.amazonaws.com"
@@ -48,15 +48,15 @@ Resources:
     Type: AWS::IAM::Policy
     Properties:
       PolicyName: PhaseListUpdateHTMLRolePolicy
-      Roles: 
-        - 
+      Roles:
+        -
           !Ref "PhaseListRole"
       PolicyDocument:
         Version: "2012-10-17"
         Statement:
           -
             Effect: "Allow"
-            Action: 
+            Action:
               - "s3:PutObject"
             Resource:
               Fn::Join:
@@ -74,7 +74,7 @@ Resources:
       FunctionName: PhaseList
       Handler: index.my_handler
       MemorySize: 128
-      Role: !GetAtt PhaseListRole.Arn 
+      Role: !GetAtt PhaseListRole.Arn
       Runtime: python2.7
       Code:
         ZipFile: lambda/lambda.zip
@@ -90,9 +90,9 @@ Resources:
   S3BucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
-      Bucket: 
+      Bucket:
         Ref: PhaseListBucketName
-      PolicyDocument: 
+      PolicyDocument:
         Statement:
           -
             Sid: "PublicReadGetObject"
@@ -118,4 +118,3 @@ Outputs:
         - https://${Domain}
         - Domain: !GetAtt S3Bucket.DomainName
     Description: phaselist
-

@@ -10,7 +10,7 @@ HTML Output (Default)
 docker run --rm --name phaselist -t pkumaschow/phaselist
 ```
 
-or 
+or
 
 ```
 ./makepage.sh > phaselist.html
