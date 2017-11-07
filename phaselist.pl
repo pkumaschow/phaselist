@@ -19,6 +19,7 @@
 #    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 use strict;
+use POSIX qw(strftime);
 
 require Phaselist;
 
@@ -27,8 +28,8 @@ require HTML::Template;
 use constant TMPL_FILE => "./templates/phaselist_template.html";
 
 my @list = Phaselist::list();
-
 my $tmpl = new HTML::Template( filename => TMPL_FILE );
+my $date = strftime "%d %b %Y", localtime;
 
 print "<!-- Phaselist version 1.0, Copyright (C) 2017 Peter Kumaschow -->\n";
 print "<!-- Phaselist comes with ABSOLUTELY NO WARRANTY -->\n";
@@ -36,5 +37,6 @@ print "<!-- This is free software, and you are welcome to redistribute it -->\n"
 print "<!-- under certain conditions; -->\n\n";
 
 $tmpl->param( phase_list => \@list );
+$tmpl->param( date => $date );
 
 print $tmpl->output;
