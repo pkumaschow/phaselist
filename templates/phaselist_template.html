@@ -120,7 +120,6 @@
                     1/4 - 1/2 tsp of Continuum2
                     </TMPL_IF>
                 ">
-
                     <!-- phase <TMPL_VAR NAME="phase"> -->
                     <td scope="row" onclick="flip(<TMPL_VAR NAME="type">);" class="cell phase_name"><TMPL_VAR NAME="name"></td>
                     <td onclick="flip(<TMPL_VAR NAME="type">);" class="cell phase_start"><TMPL_VAR NAME="start_formatted"></td>
@@ -131,9 +130,9 @@
                 </tbody>
             </table>
         </div>
-        <TMPL_INCLUDE NAME="new_template.html">
-        <TMPL_INCLUDE NAME="quarter_template.html">
-        <TMPL_INCLUDE NAME="full_template.html">
+<TMPL_INCLUDE NAME="new_template.html">
+<TMPL_INCLUDE NAME="quarter_template.html">
+<TMPL_INCLUDE NAME="full_template.html">
     </div>
     <footer class="footer">
         <span class="text-muted">Generated: <TMPL_VAR NAME="date"></span>
