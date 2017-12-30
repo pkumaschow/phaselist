@@ -8,11 +8,12 @@ LABEL   maintainer  Peter Kumaschow pkumaschow@gmail.com
 RUN     curl -L http://cpanmin.us | perl - App::cpanminus
 
 RUN     cpanm Carton
+COPY    ./cpan* phaselist/
+RUN     cd phaselist && carton install
 
 #RUN     cachebuster=b776808 git clone https://github.com/pkumaschow/phaselist
 COPY . phaselist/
 
-RUN     cd phaselist && carton install
 RUN     mv /root/phaselist/Phaselist.pm /root/phaselist/local/lib/perl5/
 
 WORKDIR /root/phaselist

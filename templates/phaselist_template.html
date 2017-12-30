@@ -9,17 +9,17 @@
         body {
             font-family: 'PT Sans Narrow', sans-serif;
         }
-		#phaslist: {
-			overflow-x: hidden;
-		}
+        #phaslist: {
+            overflow-x: hidden;
+        }
         .instructions {
             padding-top: 10px;
             padding-left: 2em;
             padding-right: 2em;
         }
-		.table {
-			width: 99%
-		}
+        .table {
+            width: 99%
+        }
         tr.type_0:hover ,
         tr.type_1:hover ,
         tr.type_2:hover ,
@@ -57,6 +57,13 @@
         }
         .maintenance {
             color: red;
+        }
+        .footer {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            padding-left: 20px;
+            background-color: #f5f5f5;
         }
     </style>
 </head>
@@ -128,6 +135,10 @@
         <TMPL_INCLUDE NAME="quarter_template.html">
         <TMPL_INCLUDE NAME="full_template.html">
     </div>
+    <footer class="footer">
+        <span class="text-muted">Generated: <TMPL_VAR NAME="date"></span>
+    </footer>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
