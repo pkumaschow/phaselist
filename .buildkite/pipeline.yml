@@ -1,0 +1,13 @@
+steps:
+  - command: "docker build -t pkumaschow/phaselist ."
+    label: "build docker image"
+
+  - wait
+
+  - command: "scripts/makepage.sh"
+    label: "test docker image"
+
+  - wait
+
+  - command: "scripts/publish.sh"
+    label: "push to docker hub"
