@@ -1,5 +1,5 @@
 #!/bin/bash
 
 set -euo pipefail
-docker login -u ${USER_NAME} -p ${USER_PASSWORD}
+docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
 docker push pkumaschow/phaselist
