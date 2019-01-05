@@ -13,12 +13,22 @@ docker run --rm --name phaselist -t pkumaschow/phaselist
 or
 
 ```
-./makepage.sh > phaselist.html
+./scripts/makepage.sh > phaselist.html
 ```
 
 
 Create Stack
 ```
 aws cloudformation create-stack --template-body file://./phaselist.template --stack-name phaselist-dev
+```
+
+Update Stack
+```
+aws cloudformation update-stack --template-body file://./phaselist.template --stack-name phaselist-dev
+```
+
+or
+```
+./scripts/updatestack.sh
 ```
 
