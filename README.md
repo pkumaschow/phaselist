@@ -1,5 +1,7 @@
 # phaselist
 
+[![Build status](https://badge.buildkite.com/a998efb5cae58aefb9da7bb87a60e96453e48cf19f15c685ed.svg?branch=master)](https://buildkite.com/webselect/phase-list)
+
 Build Docker Image
 ```
 docker build -t pkumaschow/phaselist .
