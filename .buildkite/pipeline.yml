@@ -2,7 +2,7 @@ steps:
     - label: ":check scripts:"
       plugins:
         - shellcheck#v1.1.2:
-          files: scripts/*.sh
+            files: scripts/*.sh
 
   - command: "docker build -t pkumaschow/phaselist ."
     label: "build docker image"
